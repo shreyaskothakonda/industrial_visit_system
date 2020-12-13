@@ -1,0 +1,92 @@
+VERSION 1.5
+======================
+
+Added:
+1. Added dark and light alter logo for transparent navbar
+
+Fixed:
+===================
+1. Optimaized some css
+2. Minor issue fixed
+
+
+Changed:
+===============
+1. Changed logo and template title for a copyright concern.
+2. Replaced all .matrox and .matrox-* classes with .materialize class
+
+
+
+VERSION 1.4
+======================
+
+Added:
+1. New Demo for  SEO Agency (full website demo)
+2. New Demo for Coffee Shop (full onepage demo)
+3. Shortcode Pricing Table Page
+4. Shortcode Food Menu Page
+5. New shortcode featured services
+6. Multiple Map in single page (in CoffeeShop Demo)
+7. New Flaticon added in fonts folder(used in coffeeshop)
+
+
+Fixed:
+===================
+1. Optimaized some css
+2. Minor Slider issue fixed
+3. Minor css issue fixed
+
+
+Updated: Documentation
+
+
+
+
+VERSION 1.3
+======================
+Added JS
+1. ajaxchimp-config.js
+
+Fixed:
+===================
+1. Mail Chimp javascript conflict
+
+
+
+
+VERSION 1.2
+======================
+Added New Demo:
+1. Event Landing Page
+2. ComingSoon Page
+
+
+Integrated:
+====================
+1. Mailchimp Subscription
+2. Count Down Script 
+
+
+Fixed:
+===================
+1. Modified some section design
+2. Modified alert design
+3. Onepage menu issue fixed
+4. Minor issue fixed
+
+
+
+
+VERSION 1.0
+======================
+1. Initial release
+
+
+
+
+
+Instructions for Previous (VERSION 1.0) user:
+======================================================
+If you want to use new features from updated file you need to replace your css folder and js folder with the updated css and js folder. 
+
+Warning: You should keep a backup of your all previous file, replacing folders and files may replace your custom css and javascript. 
