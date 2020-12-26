@@ -1,3 +1,6 @@
+<?php
+    include '../db/db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,18 +8,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <title>Student Registration</title>
-        <meta content="Admin Dashboard" name="description" />
-        <meta content="Mannatthemes" name="author" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <?php include 'components/stylesheets.php' ?>
 
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <script>
+        function isNumberKey(evt)
+        {
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
 
-        <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/bootstrap-material-design.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+            return true;
+        }
+        </script>
+
     </head>
-
 
     <body class="fixed-left">
 
@@ -48,6 +53,29 @@
                                                     <div class="col-12">
                                                         <input class="form-control" type="email" required="" placeholder="Email" name="student_email">
                                                     </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <div class="col-12">
+                                                        <input class="form-control" type="text" onkeypress="return isNumberKey(event)" maxlength="10"
+                                                        minlength="8" placeholder="Phone Number" name="student_phone" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <select name="student_institute" class="form-control select_institute custom-select">
+                                                        <option selected disabled >Select Institute</option>
+                                                        <?php 
+                                                        
+                                                        $get_institute_list = "SELECT * FROM `institute`" ; 
+                                                        $result = mysqli_query($con, $get_institute_list);
+                                                        while($list = mysqli_fetch_assoc($result))
+                                                        {
+                                                            echo "<option value=".$list['institute_id']." > ".$list['institute_name']." </option>";		
+                                                        }    
+                                                        
+                                                        ?>
+                                                    </select>
                                                 </div>
                     
                                                 <div class="form-group row">
@@ -88,21 +116,13 @@
             </div>
         </div>
 
-         <!-- jQuery  -->
-         <script src="assets/js/jquery.min.js"></script>
-         <script src="assets/js/popper.min.js"></script>
-         <script src="assets/js/bootstrap-material-design.js"></script>
-         <script src="assets/js/modernizr.min.js"></script>
-         <script src="assets/js/detect.js"></script>
-         <script src="assets/js/fastclick.js"></script>
-         <script src="assets/js/jquery.slimscroll.js"></script>
-         <script src="assets/js/jquery.blockUI.js"></script>
-         <script src="assets/js/waves.js"></script>
-         <script src="assets/js/jquery.nicescroll.js"></script>
-         <script src="assets/js/jquery.scrollTo.min.js"></script>
- 
-         <!-- App js -->
-         <script src="assets/js/app.js"></script>
+        <?php include 'components/scripts.php' ?>
+
+        <script>
+            $(document).ready(function() {
+                $('.custom-select').select2();
+            });
+        </script>
          
     </body>
 </html>

@@ -2,49 +2,61 @@
 
 	include '../../db/db.php';
 
-	//Get Student Data
-	$student_name = $_POST['student_name'];
-	$student_email = $_POST['student_email'];
-	$student_password = md5($_POST['student_password']);
+	session_start();
 
-	//Check if student email already in use
-	$get_student_email = "SELECT * FROM `student` WHERE `student_email` = '$student_email'";
-	$run_check_query = mysqli_query($con, $get_student_email);
-	$fetch_query_data = mysqli_fetch_array($run_check_query);
-	$fetch_student_email = $fetch_query_data['student_email'] ;
+	//Initialize Variables
+	$industry_name = "";
+	$industry_email = "";
+	$industry_website = "";
+	$industry_address = "";
+	$industry_city = "";
+	$industry_state = "";
+	$industry_password = "";
 
+	$errors = array();
 
-	//If yes then alert user, else register student
-	if($fetch_student_email == $student_email){
-		echo '<script language="javascript">';
-	    echo 'alert("Email Already in Use")';
-	    echo '</script>';
-	    echo '<meta http-equiv="refresh" content="0;url=../register.php" />';
+	//Get Industry Data
+	$industry_name = mysqli_real_escape_string($con, $_POST['industry_name']) ;
+	$industry_email = mysqli_real_escape_string($con, $_POST['industry_email']);
+	$industry_website = mysqli_real_escape_string($con, $_POST['industry_website']);
+	$industry_address = mysqli_real_escape_string($con, $_POST['industry_address']);
+	$industry_city = mysqli_real_escape_string($con, $_POST['industry_city']);
+	$industry_state = mysqli_real_escape_string($con, $_POST['industry_state']);
+	$industry_password = md5(mysqli_real_escape_string($con, $_POST['industry_password']));
+
+	//Form validation
+	if(empty($industry_email)) 
+	{
+		array_push($errors, "Industry Email is Required" );
+	}
+	if(empty($industry_password)) 
+	{
+		array_push($errors, "Industry Password is Required" );
+	} 
+
+	//Check if industry email already in use
+	$check_industry_email = "SELECT * FROM `industry` WHERE `industry_email` = '$industry_email' LIMIT 1" ;
+	$run_check = mysqli_query($con, $check_industry_email);
+	$get_check_results = mysqli_fetch_assoc($run_check);
+
+	//If yes then alert user, else register industry
+	if($get_check_results){
+		if ($get_check_results['industry_email'] === $industry_email ) {
+			array_push($errors, "Email Already Exists") ;
+		}
 	}
 
-	else{
-		$student_data = "INSERT INTO `student`(`student_name`, `student_email`, `student_password`) VALUES ('$student_name','$student_email','$student_password') ";
-		$student_registration = mysqli_query($con, $student_data);
+	//Register the user if no errors
+	if(count($errors) == 0){
+		$industry_data = "INSERT INTO `industry`(`industry_name`, `industry_email`, `industry_website`,`industry_password`, `industry_address`, `industry_city`, `industry_state`) VALUES ('$industry_name','$industry_email', '$industry_website','$industry_password', '$industry_address', '$industry_city', '$industry_state') ";
 		
-		if($student_registration)
-        {
-            echo '<script language="javascript">';
-            echo 'alert("Student Successfully Registered")';
-            echo '</script>';
-            session_start();
-            $_SESSION['student_id'] = $fetch_student_id;
-			$_SESSION['student_name'] = $fetch_student_name;
-			$_SESSION['student_email'] = $fetch_student_email;
-			header("Location: ../index.php");
-        }
+		$industry_registration = mysqli_query($con, $industry_data);
 
-        else{
-        	echo '<script language="javascript">';
-            echo 'alert("Error Registering Student")';
-            echo '</script>';
-            echo '<meta http-equiv="refresh" content="0;url=../register.php" />';
-        }
+		$_SESSION['industry_email'] = $industry_email;
+		$_SESSION['industry_name'] = $industry_name;
+		$_SESSION['success'] = "You are now Logged in";
+		header('location: ../index.php');
 	}
-		
+
 
 ?>

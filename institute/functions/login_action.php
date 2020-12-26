@@ -4,26 +4,41 @@
 
 	session_start();
 
-	//Get Student Data
-	$student_email = $_POST['student_email'];
-	$student_password = md5($_POST['student_password']);
+	$institute_email = "";
+	$institute_password = "";
+	
+	$errors = array();
 
-	//Check if student email is registered and password is correct
-	$get_student_email = "SELECT * FROM `student` WHERE `student_email` = '$student_email' AND `student_password` = '$student_password'";
-	$run_check_query = mysqli_query($con, $get_student_email);
-	$fetch_query_data = mysqli_fetch_array($run_check_query);
-	$fetch_student_email = $fetch_query_data['student_email'] ;
-	$fetch_student_password = $fetch_query_data['student_password'] ;
+	//Get institute Data
+	$institute_email =  mysqli_real_escape_string($con, $_POST['institute_email']);
+	$institute_password = md5(mysqli_real_escape_string($con, $_POST['institute_password']));
 
-	if ($fetch_student_email == $student_email ) {
-		$fetch_student_id = $fetch_query_data['student_id'] ;
-		$fetch_student_name = $fetch_query_data['student_name'] ;
+	//Form validation
+	if(empty($institute_email)) 
+	{
+		array_push($errors, "Institute Email is Required" );
+	}
+	if(empty($institute_password)) 
+	{
+		array_push($errors, "Institute Password is Required" );
+	}
 
+	//Check if institute email is registered and password is correct
+	$check_institute_email = "SELECT * FROM `institute` WHERE `institute_email` = '$institute_email' AND `institute_password` = '$institute_password' LIMIT 1" ;
+	$run_check_query = mysqli_query($con, $check_institute_email);
+	$fetch_query_data = mysqli_fetch_assoc($run_check_query);
+	$fetch_institute_email = $fetch_query_data['institute_email'] ;
+	$fetch_institute_name = $fetch_query_data['institute_name'] ;
+	$fetch_institute_id = $fetch_query_data['institute_id'] ;
+
+	if ($fetch_institute_email == $institute_email ) {
 		//Set Session
-		$_SESSION['student_id'] = $fetch_student_id;
-		$_SESSION['student_name'] = $fetch_student_name;
-		$_SESSION['student_email'] = $fetch_student_email;
-		header("Location: ../index.php");
+		$_SESSION['institute_id'] = $fetch_institute_id ;
+		$_SESSION['institute_name'] = strval($fetch_institute_name);
+		$_SESSION['institute_email'] = strval($fetch_institute_email);
+		$_SESSION['msg'] = "You are Loggin In" ;
+
+		header("Location: ../dashboard.php");
 	
 	} else {
 		echo '<script language="javascript">';

@@ -4,25 +4,37 @@
 
 	session_start();
 
-	//Get Student Data
-	$student_email = $_POST['student_email'];
-	$student_password = md5($_POST['student_password']);
+	$industry_email = "";
+	$industry_password = "";
 
-	//Check if student email is registered and password is correct
-	$get_student_email = "SELECT * FROM `student` WHERE `student_email` = '$student_email' AND `student_password` = '$student_password'";
-	$run_check_query = mysqli_query($con, $get_student_email);
-	$fetch_query_data = mysqli_fetch_array($run_check_query);
-	$fetch_student_email = $fetch_query_data['student_email'] ;
-	$fetch_student_password = $fetch_query_data['student_password'] ;
+	//Get Industry Data
+	$industry_email =  mysqli_real_escape_string($con, $_POST['industry_email']);
+	$industry_password = md5(mysqli_real_escape_string($con, $_POST['industry_password']));
 
-	if ($fetch_student_email == $student_email ) {
-		$fetch_student_id = $fetch_query_data['student_id'] ;
-		$fetch_student_name = $fetch_query_data['student_name'] ;
+	//Form validation
+	if(empty($industry_email)) 
+	{
+		array_push($errors, "Industry Email is Required" );
+	}
+	if(empty($industry_password)) 
+	{
+		array_push($errors, "Industry Password is Required" );
+	}
+
+	//Check if industry email is registered and password is correct
+	$check_industry_email = "SELECT * FROM `industry` WHERE `industry_email` = '$industry_email' AND `industry_password` = '$industry_password' LIMIT 1" ;
+	$run_check_query = mysqli_query($con, $check_industry_email);
+	$fetch_query_data = mysqli_fetch_assoc($run_check_query);
+	$fetch_industry_email = $fetch_query_data['industry_email'] ;
+
+	if ($fetch_industry_email == $industry_email ) {
+		$fetch_industry_id = $fetch_query_data['industry_id'] ;
+		$fetch_industry_name = $fetch_query_data['industry_name'] ;
 
 		//Set Session
-		$_SESSION['student_id'] = $fetch_student_id;
-		$_SESSION['student_name'] = $fetch_student_name;
-		$_SESSION['student_email'] = $fetch_student_email;
+		$_SESSION['industry_name'] = $fetch_industry_name;
+		$_SESSION['industry_email'] = $industry_email;
+		$_SESSION['msg'] = "You are Loggin In" ;
 		header("Location: ../index.php");
 	
 	} else {
