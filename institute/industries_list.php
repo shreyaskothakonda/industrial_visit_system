@@ -80,12 +80,15 @@ else{
                                                     <th>Email</th>
                                                     <th>City</th>
                                                     <th>Address</th>
+                                                    <th>Details</th>
                                                 </tr>
                                                 </thead>
 
                                                 <tbody>
 
                                                 <?php
+
+                                                $view_profile = '<a href="" class="text-primary"> View Profile </a>';
                                                 
                                                 $get_industry_list = "SELECT * FROM `industry`" ; 
                                                 $result = mysqli_query($con, $get_industry_list);
@@ -97,6 +100,7 @@ else{
                                                     <td>".$list['industry_email']."</td>
                                                     <td>".$list['industry_city']."</td>
                                                     <td>".$list['industry_address']."</td>
+                                                    <td>".$view_profile."</td>
                                                     ";
                                                 }
                                                 

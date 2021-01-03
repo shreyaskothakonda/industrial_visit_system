@@ -47,7 +47,6 @@ $message = mysqli_real_escape_string($con, $_POST['message']);
 $date_of_request = mysqli_real_escape_string($con, $_POST['date_of_request']);
 $request_status = 0;
 
-echo $errors ;
 
 //insert into database
 if(count($errors) == 0){

@@ -38,7 +38,7 @@
 		$_SESSION['institute_email'] = strval($fetch_institute_email);
 		$_SESSION['msg'] = "You are Loggin In" ;
 
-		header("Location: ../dashboard.php");
+		header("Location: ../index.php");
 	
 	} else {
 		echo '<script language="javascript">';

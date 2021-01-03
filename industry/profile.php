@@ -6,6 +6,7 @@ session_start();
 if (isset($_SESSION['industry_email'])) {
     @$msg = $_SESSION['msg'] ;
     @$industry_name = $_SESSION['industry_name'] ;
+    @$industry_id = $_SESSION['industry_id'] ;
 }
 else{
     header("Location: login.php");
@@ -53,7 +54,7 @@ else{
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
-                                        <h4 class="page-title">Dashboard</h4>
+                                        <h4 class="page-title">Profile</h4>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
@@ -61,8 +62,11 @@ else{
 
                             <!-- end page title end breadcrumb -->
 
-                            <!--end row-->
-
+                            <!--main content-->
+                            <div class="row">
+                                
+                            </div>
+                            <!--main content-->
                         </div>
                         <!-- container -->
 

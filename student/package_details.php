@@ -3,6 +3,8 @@
 session_start();
 include '../db/db.php';
 
+$data_key = "rzp_test_fNJdnQZ9VuxwG6";
+
 if (!isset($_SESSION['student_email'])) {
 	header("Location: ../login.php");
 }
@@ -148,28 +150,21 @@ $list_request = mysqli_fetch_assoc($result_requests) ;
                                             ?>
                                             </tbody>
                                         </table>
-
-                                        <?php 
-        
-                                        if($list_package['price'] != ''){
-                                            echo '
-                                            <div class="col mt-5 d-flex align-items-start">
-                                            <form action="functions/payment.php" method="post">
-                                                <input type="hidden" name="pay" value="accept">
-                                                <button type="submit" class="btn btn-success btn-raised mr-2 btn-lg"> Pay </button>
-                                            </form>
-                                            
-                                            ';
-
-                                            
-                                        }
-                                        
-                                        ?>
                                         
                                         </div>
                                     </div>
                                 </div>
+
+                                <?php 
+        
+                            if($list_package['price'] != ''){
+                                include 'components/payment.php';                                
+                            }
+                                        
+                            ?>
+
                             </div>
+
                             <!--/main-content-->
                            
 
@@ -193,6 +188,7 @@ $list_request = mysqli_fetch_assoc($result_requests) ;
 
 
         <?php include 'components/scripts.php' ?>
+        
        
     </body>
 

@@ -3,7 +3,7 @@
 session_start();
 
 if (isset($_SESSION['institute_email'])) {
-    header("Location: dashboard.php");
+    header("Location: upcoming_visits.php");
 }
 
 else{

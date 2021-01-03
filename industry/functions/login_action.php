@@ -11,6 +11,8 @@
 	$industry_email =  mysqli_real_escape_string($con, $_POST['industry_email']);
 	$industry_password = md5(mysqli_real_escape_string($con, $_POST['industry_password']));
 
+	$errors = array() ;
+
 	//Form validation
 	if(empty($industry_email)) 
 	{
@@ -34,6 +36,7 @@
 		//Set Session
 		$_SESSION['industry_name'] = $fetch_industry_name;
 		$_SESSION['industry_email'] = $industry_email;
+		$_SESSION['industry_id'] = $fetch_industry_id;
 		$_SESSION['msg'] = "You are Loggin In" ;
 		header("Location: ../index.php");
 	

@@ -30,10 +30,12 @@
 	if ($fetch_student_email == $student_email ) {
 		$fetch_student_id = $fetch_query_data['student_id'] ;
 		$fetch_student_name = $fetch_query_data['student_name'] ;
+		$fetch_institute_id = $fetch_query_data['institute_id'];
 
 		//Set Session
 		$_SESSION['student_name'] = $fetch_student_name;
 		$_SESSION['student_email'] = $student_email;
+		$_SESSION['institute_id'] = $fetch_institute_id ;
 		$_SESSION['msg'] = "You are Logged In" ;
 		header("Location: ../index.php");
 	

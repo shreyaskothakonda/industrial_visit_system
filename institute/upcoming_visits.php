@@ -103,14 +103,14 @@ else{
                                                 while($list_request = mysqli_fetch_assoc($result_requests))
                                                 {
                                                     echo "
-                                                    <td>".$list['request_to_industry_name']." - ".$list_industry['industry_city']."</td>
-                                                    <td>".$list['number_of_students']."</td>
-                                                    <td>".$list['number_of_faculties']."</td>
-                                                    <td>".$list['number_of_days']."</td>
-                                                    <td>".$list['date_of_visit']."</td>
-                                                    <td>".$list['date_of_request']."</td>
+                                                    <td>".$list_request['request_to_industry_name']." - ".$list_industry['industry_city']."</td>
+                                                    <td>".$list_request['number_of_students']."</td>
+                                                    <td>".$list_request['number_of_faculties']."</td>
+                                                    <td>".$list_request['number_of_days']."</td>
+                                                    <td>".$list_request['date_of_visit']."</td>
+                                                    <td>".$list_request['date_of_request']."</td>
                                                     <td>"; 
-                                                        if(@$list['request_status'] == 0){
+                                                        if(@$list_request['request_status'] == 0){
                                                             echo "<span class='text-primary'> No Response </span>";
                                                         }
                                                         elseif(@$list['request_status'] == 1){

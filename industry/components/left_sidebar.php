@@ -18,19 +18,10 @@
 
                     <div id="sidebar-menu">
                         <ul>
-                            <li class="menu-title">Main</li>
-
                             <li>
-                                <a href="index.php" class="waves-effect">
-                                    <i class="mdi mdi-view-dashboard"></i>
-                                    <span> Dashboard </span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="calendar.php" class="waves-effect">
+                                <a href="upcoming_visits.php" class="waves-effect">
                                     <i class="mdi mdi-calendar-clock"></i>
-                                    <span> Calendar </span>
+                                    <span> Upcoming Visits </span>
                                 </a>
                             </li>
 
@@ -40,6 +31,21 @@
                                     <span> Requests </span>
                                 </a>
                             </li>
+
+                            <li>
+                                <a href="history.php" class="waves-effect">
+                                    <i class="mdi mdi-history"></i>
+                                    <span> History </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="profile.php" class="waves-effect">
+                                    <i class="mdi mdi-factory"></i>
+                                    <span> Profile </span>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                     <div class="clearfix"></div>

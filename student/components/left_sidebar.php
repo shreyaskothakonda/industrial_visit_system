@@ -21,25 +21,12 @@
                             <li class="menu-title">Main</li>
 
                             <li>
-                                <a href="index.php" class="waves-effect">
-                                    <i class="mdi mdi-view-dashboard"></i>
-                                    <span> Dashboard </span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="calendar.php" class="waves-effect">
+                                <a href="upcoming_visits.php" class="waves-effect">
                                     <i class="mdi mdi-calendar-clock"></i>
-                                    <span> Calendar </span>
+                                    <span> Upcoming Visits </span>
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="requests.php" class="waves-effect">
-                                    <i class="mdi mdi-clipboard-arrow-down-outline"></i>
-                                    <span> Requests </span>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                     <div class="clearfix"></div>

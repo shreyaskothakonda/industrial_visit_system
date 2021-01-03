@@ -18,14 +18,6 @@
 
                     <div id="sidebar-menu">
                         <ul>
-                            <li class="menu-title">Main</li>
-
-                            <li>
-                                <a href="dashboard.php" class="waves-effect">
-                                    <i class="mdi mdi-view-dashboard"></i>
-                                    <span> Dashboard </span>
-                                </a>
-                            </li>
 
                             <li>
                                 <a href="upcoming_visits.php" class="waves-effect">
@@ -38,6 +30,13 @@
                                 <a href="plan_a_visit.php" class="waves-effect">
                                     <i class="mdi mdi-file-document-edit"></i>
                                     <span> Plan a Visit </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="create_package.php" class="waves-effect">
+                                    <i class="mdi mdi-package"></i>
+                                    <span> Create Package </span>
                                 </a>
                             </li>
 
@@ -57,7 +56,7 @@
 
                             <li>
                                 <a href="profile.php" class="waves-effect">
-                                    <i class="mdi mdi-account"></i>
+                                    <i class="mdi mdi-school"></i>
                                     <span> Profile </span>
                                 </a>
                             </li>

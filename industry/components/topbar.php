@@ -3,17 +3,7 @@
 
 <nav class="navbar-custom">
     <div class="dropdown notification-list nav-pro-img">
-
-        <div class="list-inline-item hide-phone app-search">
-            <form role="search" class="">
-                <div class="form-group pt-1">
-                    <input type="text" class="form-control" placeholder="Search..">
-                    <a href="">
-                        <i class="fa fa-search"></i>
-                    </a>
-                </div>
-            </form>
-        </div>
+    
     </div>
 
     <ul class="list-inline float-right mb-0 mr-3">

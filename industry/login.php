@@ -27,7 +27,7 @@
                                         <h2>Industry Login</h2>
                                     </div>
                                     <div class="px-3 pb-3">
-                                        <form class="form-horizontal m-t-20 mb-0" action="functions/login_action.php">
+                                        <form class="form-horizontal m-t-20 mb-0" action="functions/login_action.php" method="post">
                                             
                                             <div class="form-group row">
                                                 <div class="col-12">
