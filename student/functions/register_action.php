@@ -50,6 +50,7 @@
 
 		$_SESSION['student_email'] = $student_email;
 		$_SESSION['student_name'] = $student_name;
+		$_SESSION['institute_id'] = $student_institute;
 		$_SESSION['success'] = "You are now Logged in";
 		header('location: ../index.php');
 	}

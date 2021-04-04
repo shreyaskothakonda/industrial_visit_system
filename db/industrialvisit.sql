@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2021 at 08:34 AM
+-- Generation Time: Apr 04, 2021 at 06:20 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.1.29
 
@@ -75,7 +75,8 @@ CREATE TABLE `industry` (
 --
 
 INSERT INTO `industry` (`industry_id`, `industry_name`, `industry_email`, `industry_website`, `industry_password`, `industry_address`, `industry_city`, `industry_state`) VALUES
-(1, 'Defence Research and Development Organisation', 'contact@drdo.gov.in', 'drdo.gov.in', '6f06705e352d59cc639296843e8a5f30', 'DRDO HQ, DRDO Bhawan Rajaji Marg, New Delhi- 110 011', 'New Delhi', 'Delhi');
+(1, 'Defence Research and Development Organisation', 'contact@drdo.gov.in', 'drdo.gov.in', '6f06705e352d59cc639296843e8a5f30', 'DRDO HQ, DRDO Bhawan Rajaji Marg, New Delhi- 110 011', 'New Delhi', 'Delhi'),
+(2, 'Indian Space Research Organization', 'contact@isro.gov.in', 'isro.gov.in', '5f78509e7ae1bd3e7f5119ad0db661a2', 'Antariksh Bhavan, New BEL Road', 'Bengaluru', 'Karnataka');
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,8 @@ CREATE TABLE `institute` (
 
 INSERT INTO `institute` (`institute_id`, `institute_name`, `institute_email`, `institute_website`, `institute_password`, `institute_address`, `institute_city`, `institute_state`) VALUES
 (1, 'Vidyalankar School of Information Technology ', 'contact@vsit.edu.in', 'vsit.edu.in', 'ab30d26d0cf4da3f7b8349a8fa285840', 'Vidyalankar Educational Campus, Vidyalankar College Rd, Wadala East, Deen Bandhu Nagar, Antop Hill, Mumbai, Maharashtra 400037', 'Mumbai', 'Maharashtra '),
-(2, 'Vidyalankar Polytechnic', 'contact@vpt.edu.in', 'vpt.edu.in', '825ac5d621ef983e9b0ba4f69a19fb95', 'Vidyalankar Campus, Vidyalankar College Rd, Wadala East, Sangam Nagar, Mumbai, Maharashtra 400037', 'Mumbai', 'Maharashtra ');
+(2, 'Vidyalankar Polytechnic', 'contact@vpt.edu.in', 'vpt.edu.in', '825ac5d621ef983e9b0ba4f69a19fb95', 'Vidyalankar Campus, Vidyalankar College Rd, Wadala East, Sangam Nagar, Mumbai, Maharashtra 400037', 'Mumbai', 'Maharashtra '),
+(3, 'Guru Nanak Khalsa College', 'contact@gnkhalsa.edu.in', 'http://www.gnkhalsa.edu.in', '17ef5b43959b27c61d675cbd03eb126c', 'Matunga ', 'Mumbai', 'Maharashtra');
 
 -- --------------------------------------------------------
 
@@ -155,7 +157,8 @@ CREATE TABLE `requests` (
 --
 
 INSERT INTO `requests` (`request_id`, `request_from_institute_id`, `request_from_institute_name`, `request_to_industry_id`, `request_to_industry_name`, `institute_phone_number`, `number_of_students`, `number_of_faculties`, `number_of_days`, `date_of_visit`, `subject`, `message`, `date_of_request`, `request_status`) VALUES
-(18, 2, 'Vidyalankar Polytechnic', 1, 'Defence Research and Development Organisation', '7418529630', 40, 6, 2, '2021-04-21', 'Industrial Visit to DRDO', 'We at Vidyalankar Polytehnic are interested for a Industrial Visit at DRDO for our students', '2020-12-25', 1);
+(18, 2, 'Vidyalankar Polytechnic', 1, 'Defence Research and Development Organisation', '7418529630', 40, 6, 2, '2021-04-21', 'Industrial Visit to DRDO', 'We at Vidyalankar Polytehnic are interested for a Industrial Visit at DRDO for our students', '2020-12-25', 1),
+(19, 0, 'Guru Nanak Khalsa College', 1, 'Defence Research and Development Organisation', '8458465236', 10, 4, 1, '2021-04-18', 'Industrial Visit at DRDO', 'Contact Guru Nanak Khalsa College at contact@gnkhalsa.edu.in', '2021-04-04', 1);
 
 -- --------------------------------------------------------
 
@@ -179,8 +182,7 @@ CREATE TABLE `student` (
 INSERT INTO `student` (`student_id`, `student_name`, `student_email`, `student_password`, `institute_id`, `phone_number`) VALUES
 (3, 'Shreyas Kothakonda', 'shreyask@gmail.com', 'd8578edf8458ce06fbc5bb76a58c5ca4', 2, 7418529630),
 (5, 'Prince Karania', 'prince@gmail.com', 'd8578edf8458ce06fbc5bb76a58c5ca4', 1, 8541236985),
-(6, 'Uday Jadhav', 'uday@gmail.com', 'd8578edf8458ce06fbc5bb76a58c5ca4', 2, 0),
-(7, 'Devang Shirodkar', 'devang@gmail.com', '6560655a35c7a405888bc11cb09e771e', 1, 2147483647);
+(8, 'Uday Jadhav', 'uday@gmail.com', '6583924a206e409d80024e5dd518b511', 3, 7418529630);
 
 --
 -- Indexes for dumped tables
@@ -236,13 +238,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `industry`
 --
 ALTER TABLE `industry`
-  MODIFY `industry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `industry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `institute`
 --
 ALTER TABLE `institute`
-  MODIFY `institute_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `institute_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `package`
@@ -254,13 +256,13 @@ ALTER TABLE `package`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

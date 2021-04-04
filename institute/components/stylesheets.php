@@ -20,3 +20,8 @@
 
 <link href="../assets/plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css" rel="stylesheet" /> 
 
+<style>
+    .form-control:focus, input:focus{
+        color: #000 ;
+    }
+</style>

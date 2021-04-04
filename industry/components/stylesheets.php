@@ -12,3 +12,9 @@
 <link rel="stylesheet" href="../assets/css/bootstrap-material-design.min.css" type="text/css">
 <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
 <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+
+<style>
+    .form-control:focus{
+        color: #000 ;
+    }
+</style>

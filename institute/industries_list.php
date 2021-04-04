@@ -94,13 +94,15 @@ else{
                                                 $result = mysqli_query($con, $get_industry_list);
                                                 while($list = mysqli_fetch_assoc($result))
                                                 {
-                                                    echo "
+                                                    echo " 
+                                                    <tr>
                                                     <td>".$list['industry_name']." - ".$list['industry_city']."</td>
                                                     <td>".$list['industry_website']."</td>
                                                     <td>".$list['industry_email']."</td>
                                                     <td>".$list['industry_city']."</td>
                                                     <td>".$list['industry_address']."</td>
                                                     <td>".$view_profile."</td>
+                                                    </tr>
                                                     ";
                                                 }
                                                 
