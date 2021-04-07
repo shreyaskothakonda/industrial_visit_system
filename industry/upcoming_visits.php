@@ -82,7 +82,11 @@ else{
                                                 <th scope="col">Phone Number</th>
                                                 <th scope="col">No. of Students</th>
                                                 <th scope="col">No. of Faculties</th>
+<<<<<<< HEAD
+                                                <th scope="col">No. of Days</th>
+=======
                                                 <th scope="col">No. of Faculties</th>
+>>>>>>> 597d7f52ca68c89d205530794a5505b6bb1fbbb3
                                                 <th scope="col">Date of Visit</th>
                                                 </tr>
                                             </thead>
@@ -94,12 +98,20 @@ else{
                                             while($list_request = mysqli_fetch_assoc($result_requests))
                                             {
                                                 echo "
+<<<<<<< HEAD
+                                                <tr>
+=======
+>>>>>>> 597d7f52ca68c89d205530794a5505b6bb1fbbb3
                                                 <td>".$list_request['request_from_institute_name']."</td>
                                                 <td>".$list_request['institute_phone_number']."</td>
                                                 <td>".$list_request['number_of_students']."</td>
                                                 <td>".$list_request['number_of_faculties']."</td>
                                                 <td>".$list_request['number_of_days']."</td>
                                                 <td>".$list_request['date_of_visit']."</td>
+<<<<<<< HEAD
+                                                </tr>
+=======
+>>>>>>> 597d7f52ca68c89d205530794a5505b6bb1fbbb3
                                                 "; 
                                                     
                                             }

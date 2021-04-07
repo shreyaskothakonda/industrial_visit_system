@@ -1,29 +1,31 @@
 <?php
 
-include '../db/db.php';
 session_start();
+include '../db/db.php';
 
-if (isset($_SESSION['industry_email'])) {
-    @$msg = $_SESSION['msg'] ;
-    @$industry_name = $_SESSION['industry_name'] ;
-<<<<<<< HEAD
-=======
-    @$industry_id = $_SESSION['industry_id'] ;
->>>>>>> 597d7f52ca68c89d205530794a5505b6bb1fbbb3
-}
-else{
-    header("Location: login.php");
+if (!isset($_SESSION['student_email'])) {
+	header("Location: ../login.php");
 }
 
-<<<<<<< HEAD
-@$industry_id = $_SESSION['industry_id'] ;
+$student_email = $_SESSION['student_email'];
 
-$get_industry_details = "SELECT * FROM `industry` WHERE `industry_id` = '$industry_id'";
-$run_get_industry_details = mysqli_query($con, $get_industry_details);
-$industry_data = mysqli_fetch_assoc($run_get_industry_details);
+//Get student First name
+@$student_name = $_SESSION['student_name'];
+$name = explode(' ',trim($student_name));
+$student_first_name = $name[0]; 
 
-=======
->>>>>>> 597d7f52ca68c89d205530794a5505b6bb1fbbb3
+
+$get_student_details = "SELECT * FROM student WHERE `student_email` = '$student_email' LIMIT 1" ;
+$run_get_student_details = mysqli_query($con, $get_student_details) ;
+$student_data = mysqli_fetch_array($run_get_student_details);
+
+$institute_id = $_SESSION['institute_id'] ;
+
+
+$get_institute_name = "SELECT `institute_name` FROM `institute` WHERE `institute_id` = '$institute_id' LIMIT 1"; 
+$run_get_institute_name = mysqli_query($con, $get_institute_name);
+$institute_data = mysqli_fetch_assoc($run_get_institute_name) ;
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +34,7 @@ $industry_data = mysqli_fetch_assoc($run_get_industry_details);
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Industry - Smart Industrial Visit</title>
+        <title>Student - Smart Industrial Visit</title>
         <?php include 'components/stylesheets.php' ?>
 
     </head>
@@ -50,7 +52,7 @@ $industry_data = mysqli_fetch_assoc($run_get_industry_details);
         <!-- Begin page -->
         <div id="wrapper">
 
-            <?php include 'components/left_sidebar.php' ?>
+        <?php include 'components/left_sidebar.php' ?>
 
             <!-- Start right Content here -->
 
@@ -58,7 +60,7 @@ $industry_data = mysqli_fetch_assoc($run_get_industry_details);
                 <!-- Start content -->
                 <div class="content">
 
-                    <?php include 'components/topbar.php' ?>
+                <?php include 'components/topbar.php' ?>
 
                     <div class="page-content-wrapper dashborad-v">
 
@@ -66,7 +68,12 @@ $industry_data = mysqli_fetch_assoc($run_get_industry_details);
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
-                                        <h4 class="page-title">Profile</h4>
+                                        <div class="btn-group float-right">
+                                            <ol class="breadcrumb hide-phone p-0 m-0">
+                                                
+                                            </ol>
+                                        </div>
+                                        <h4 class="page-title">Student Profile</h4>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
@@ -74,7 +81,6 @@ $industry_data = mysqli_fetch_assoc($run_get_industry_details);
 
                             <!-- end page title end breadcrumb -->
 
-<<<<<<< HEAD
                             <!--main-content-->
                             <div class="row">
                                 <div class="col-12">
@@ -90,28 +96,24 @@ $industry_data = mysqli_fetch_assoc($run_get_industry_details);
                                             <tbody>
                                                 <tr>
                                                 <td>Name</td>
-                                                <td><?php echo $industry_data['industry_name']?></td>
+                                                <td><?php echo $student_data['student_name']?></td>
                                                 </tr>
 
                                                 <tr>
                                                 <td>Email</td>
-                                                <td><?php echo $_SESSION['industry_email']?></td>
+                                                <td><?php echo $_SESSION['student_email']?></td>
                                                 </tr>
 
                                                 <tr>
-                                                <td>Website</td>
-                                                <td><?php echo $industry_data['industry_website']?></td>
+                                                <td>Institute</td>
+                                                <td><?php echo $institute_data['institute_name']?></td>
                                                 </tr>
 
                                                 <tr>
-                                                <td>Address</td>
-                                                <td><?php echo $industry_data['industry_address']?></td>
-                                                </tr> 
+                                                <td>Phone Number</td>
+                                                <td><?php echo $student_data['phone_number']?></td>
+                                                </tr>                                               
 
-                                                <tr>
-                                                <td>City, State</td>
-                                                <td><?php echo $industry_data['industry_city'].", ".$industry_data['industry_state']?></td>
-                                                </tr> 
                                             
                                             </tbody>
                                         </table>
@@ -123,13 +125,8 @@ $industry_data = mysqli_fetch_assoc($run_get_industry_details);
                             </div>
 
                             <!--/main-content-->
-=======
-                            <!--main content-->
-                            <div class="row">
-                                
-                            </div>
-                            <!--main content-->
->>>>>>> 597d7f52ca68c89d205530794a5505b6bb1fbbb3
+                           
+
                         </div>
                         <!-- container -->
 
@@ -140,6 +137,7 @@ $industry_data = mysqli_fetch_assoc($run_get_industry_details);
 
                 <footer class="footer">
                     © 2020 Smart Industrial Visit.
+                   
                 </footer>
 
             </div>
@@ -150,6 +148,7 @@ $industry_data = mysqli_fetch_assoc($run_get_industry_details);
 
 
         <?php include 'components/scripts.php' ?>
+        
        
     </body>
 

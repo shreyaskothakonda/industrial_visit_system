@@ -82,7 +82,11 @@ else{
                                             </h4>
                                             <div class="general-label">
                                                 <form class="mb-0" action="functions/create_package_action.php" method="post">
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 597d7f52ca68c89d205530794a5505b6bb1fbbb3
                                                 <div class="form-group">
                                                         <select name="package_for_request_id" class="form-control select2 form-control mb-3 custom-select">
                                                             <option selected disabled >Select Visiting Industry</option>
@@ -98,7 +102,13 @@ else{
 
     ?>
                                                         </select>
+<<<<<<< HEAD
+                                                        
                                                     </div>
+                                                    <label class="text-muted">If you don't see the industry name please wait for them to approve your request</label>
+=======
+                                                    </div>
+>>>>>>> 597d7f52ca68c89d205530794a5505b6bb1fbbb3
 
                                                     <input type="hidden" name="package_for_institute_id" value="<?php echo $institute_id?>">
 
