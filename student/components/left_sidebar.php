@@ -27,7 +27,7 @@
                                 </a>
                             </li>
 
-<<<<<<< HEAD
+
                             <li>
                                 <a href="profile.php" class="waves-effect">
                                     <i class="mdi mdi-calendar-clock"></i>
@@ -35,8 +35,6 @@
                                 </a>
                             </li>
 
-=======
->>>>>>> 597d7f52ca68c89d205530794a5505b6bb1fbbb3
                         </ul>
                     </div>
                     <div class="clearfix"></div>
