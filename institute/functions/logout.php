@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	if(isset($_SESSION['student_email'])){
+	if(isset($_SESSION['institute_email'])){
 		session_destroy();
-		header("Location:../login.php");
 	}
+	header("Location: ../../index.html");
 ?>

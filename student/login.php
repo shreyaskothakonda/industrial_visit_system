@@ -5,16 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <title>Login - Student Panel</title>
-        <meta content="Admin Dashboard" name="description" />
-        <meta content="Mannatthemes" name="author" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-        <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/bootstrap-material-design.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <?php include 'components/stylesheets.php' ?>
 
     </head>
     <body style="background: #E0E0E2">
@@ -74,7 +65,6 @@
                                             </div>
                                         </form>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -86,22 +76,8 @@
     </div>
 
 
+    <?php include 'components/scripts.php' ?>
 
-        <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap-material-design.js"></script>
-        <script src="assets/js/modernizr.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-
-        <!-- App js -->
-        <script src="assets/js/app.js"></script>
         
     </body>
 </html>

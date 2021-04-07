@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['institute_email'])) {
+    header("Location: dashboard.php");
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,16 +16,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
         <title>Login - Institute Panel</title>
-        <meta content="Admin Dashboard" name="description" />
-        <meta content="Mannatthemes" name="author" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-        <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/bootstrap-material-design.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <?php include 'components/stylesheets.php' ?>
 
     </head>
     <body style="background: #E0E0E2">
@@ -35,17 +37,17 @@
                                         <h2>Institute Login</h2>
                                     </div>
                                     <div class="px-3 pb-3">
-                                        <form class="form-horizontal m-t-20 mb-0" action="index.html">
+                                        <form class="form-horizontal m-t-20 mb-0" action="functions/login_action.php" method="post">
                                             
                                             <div class="form-group row">
                                                 <div class="col-12">
-                                                    <input class="form-control" type="text" required="" placeholder="Username">
+                                                    <input class="form-control" type="text" required="" placeholder="Email" name="institute_email">
                                                 </div>
                                             </div>
                     
                                             <div class="form-group row">
                                                 <div class="col-12">
-                                                    <input class="form-control" type="password" required="" placeholder="Password">
+                                                    <input class="form-control" type="password" required="" placeholder="Password" name="institute_password">
                                                 </div>
                                             </div>
                     
@@ -86,22 +88,7 @@
     </div>
 
 
-
-        <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/popper.min.js"></script>
-        <script src="assets/js/bootstrap-material-design.js"></script>
-        <script src="assets/js/modernizr.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-
-        <!-- App js -->
-        <script src="assets/js/app.js"></script>
+    <?php include 'components/scripts.php' ?>
         
     </body>
 </html>
